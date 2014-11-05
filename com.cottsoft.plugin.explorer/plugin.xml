@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.commands">  
+      <category id="com.cottsoft.plugin.explorer"  
+            name="File System">  
+      </category>  
+      <command  
+            name="Open to Directory"  
+            categoryId="com.cottsoft.plugin.explorer"  
+            id="com.cottsoft.plugin.explorer.openDir">  
+      </command>  
+      <command  
+            name="Open to Command"  
+            categoryId="com.cottsoft.plugin.explorer"  
+            id="com.cottsoft.plugin.explorer.openCmd">  
+      </command>  
+   </extension>  
+   
+   <extension  
+         point="org.eclipse.ui.menus">  
+      <menuContribution  
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">  
+            <toolbar id="com.cottsoft.plugin.explorer.toolbar">  
+                <command  
+                   commandId="com.cottsoft.plugin.explorer.openDir"  
+                   icon="icons/open-explorer.png"  
+                   label="Open to Directory"  
+                   id="com.cottsoft.plugin.explorer.openDirMenuCommand">  
+                 </command>  
+                 <command  
+                       commandId="com.cottsoft.plugin.explorer.openCmd"  
+                       icon="icons/ms-dos.png"  
+                       label="Open to Command"  
+                       id="com.cottsoft.plugin.explorer.openCmdMenuCommand">  
+                 </command>  
+            </toolbar>  
+      </menuContribution>  
+   </extension>  
+   
+   <extension  
+         point="org.eclipse.ui.handlers">  
+      <handler  
+            commandId="com.cottsoft.plugin.explorer.openDir"  
+            class="com.cottsoft.plugin.explorer.action.OpenWinDirAction">  
+      </handler>  
+      <handler  
+            commandId="com.cottsoft.plugin.explorer.openCmd"  
+            class="com.cottsoft.plugin.explorer.action.OpenWinCmdAction">  
+      </handler>  
+   </extension>  
+     
+   
+   <extension  
+         point="org.eclipse.ui.bindings">  
+      <key  
+            commandId="com.cottsoft.plugin.explorer.openDir"  
+            sequence="ALT+`"  
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">  
+      </key>  
+      <key  
+            commandId="com.cottsoft.plugin.explorer.openCmd"  
+            sequence="ALT+1"  
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">  
+      </key>  
+   </extension> 
+</plugin>
